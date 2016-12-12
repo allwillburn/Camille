@@ -218,7 +218,7 @@ OnTick(function (myHero)
 		if CamilleMenu.LaneClear.RHydra:Value() and ValidTarget(closeminion, 400) then
                         CastTargetSpell(closeminion, RHydra)
       	        end
-          end
+          
       end
         --AutoMode
         if CamilleMenu.AutoMode.Q:Value() then        
