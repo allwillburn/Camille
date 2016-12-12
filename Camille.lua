@@ -103,13 +103,12 @@ OnTick(function (myHero)
         --Harass
           if Mix:Mode() == "Harass" then
             if CamilleMenu.Harass.Q:Value() and Ready(_Q) and ValidTarget(target, 700) then
-				if target ~= nil then 
-                                      CastTargetSpell(target, _Q)
-                                end
+			        CastSpell(_Q)
+                                
             end
 
             if CamilleMenu.Harass.W:Value() and Ready(_W) and ValidTarget(target, 700) then
-				CastSpell(_W)
+				CastSkillShot(_W, target)
             end     
           end
 
@@ -132,13 +131,12 @@ OnTick(function (myHero)
             end
 
             if CamilleMenu.Combo.E:Value() and Ready(_E) and ValidTarget(target, 700) then
-			 CastSpell(_E)
+			 CastSkillShot(_E, target)
 	    end
 
-            if CamilleMenu.Combo.Q:Value() and Ready(_Q) and ValidTarget(target, 700) then
-		     if target ~= nil then 
-                         CastTargetSpell(target, _Q)
-                     end
+            if CamilleMenu.Combo.Q:Value() and Ready(_Q) and ValidTarget(target, 700) then		      
+                         CastSpell(_Q)
+                     
             end
 
             if CamilleMenu.Combo.Tiamat:Value() and Tiamat > 0 and Ready(Tiamat) and ValidTarget(target, 350) then
@@ -154,12 +152,12 @@ OnTick(function (myHero)
             end
 
 	    if CamilleMenu.Combo.W:Value() and Ready(_W) and ValidTarget(target, 700) then
-			CastSpell(_W)
+			CastSkillShot(_W, target)
 	    end
 	    
 	    
             if CamilleMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 700) and (EnemiesAround(myHeroPos(), 700) >= JaxMenu.Combo.RX:Value()) then
-			CastSpell(_R)
+			CastSkillShot(_R, target)
             end
 
           end
@@ -188,14 +186,13 @@ OnTick(function (myHero)
 
         for _, enemy in pairs(GetEnemyHeroes()) do
                 
-                if IsReady(_Q) and ValidTarget(enemy, 700) and CamilleMenu.KillSteal.Q:Value() and GetHP(enemy) < getdmg("Q",enemy) then
-		         if target ~= nil then 
-                                      CastTargetSpell(target, _Q)
+                if IsReady(_Q) and ValidTarget(enemy, 700) and CamilleMenu.KillSteal.Q:Value() and GetHP(enemy) < getdmg("Q",enemy) then		         
+                                      CastSpell(_Q)
 		         end
                 end 
 
                 if IsReady(_E) and ValidTarget(enemy, 187) and CamilleMenu.KillSteal.E:Value() and GetHP(enemy) < getdmg("E",enemy) then
-		                      CastSpell(_E)
+		                      CastSkillShot(_E, target)
   
                 end
       end
@@ -203,15 +200,15 @@ OnTick(function (myHero)
       if Mix:Mode() == "LaneClear" then
       	  for _,closeminion in pairs(minionManager.objects) do
 	        if CamilleMenu.LaneClear.Q:Value() and Ready(_Q) and ValidTarget(closeminion, 700) then
-	        	CastTargetSpell(closeminion, _Q)
+	        	CastSpell(_Q)
                 end
 
                 if CamilleMenu.LaneClear.W:Value() and Ready(_W) and ValidTarget(closeminion, 700) then
-	        	CastSpell(_W)
+	        	CastSkillShot(_W, target)
 	        end
 
                 if CamilleMenu.LaneClear.E:Value() and Ready(_E) and ValidTarget(closeminion, 187) then
-	        	CastSpell(_E)
+	        	CastSkillShot(_E, target)
 	        end
 
                 if CamilleMenu.LaneClear.Tiamat:Value() and ValidTarget(closeminion, 350) then
@@ -226,22 +223,22 @@ OnTick(function (myHero)
         --AutoMode
         if CamilleMenu.AutoMode.Q:Value() then        
           if Ready(_Q) and ValidTarget(target, 700) then
-		      CastTargetSpell(target, _Q)
+		      CastSpell(_Q)
           end
         end 
         if CamilleMenu.AutoMode.W:Value() then        
           if Ready(_W) and ValidTarget(target, 700) then
-	  	      CastSpell(_W)
+	  	      CastSkillShot(_W, target)
           end
         end
         if CamilleMenu.AutoMode.E:Value() then        
 	  if Ready(_E) and ValidTarget(target, 125) then
-		      CastSpell(_E)
+		      CastSkillShot(_E, target)
 	  end
         end
         if CamilleMenu.AutoMode.R:Value() then        
 	  if Ready(_R) and ValidTarget(target, 700) then
-		      CastSpell(_R)
+		      CastSkillShot(_R, target)
 	  end
         end
                 
