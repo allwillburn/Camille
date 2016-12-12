@@ -1,4 +1,4 @@
-local ver = "0.12"
+local ver = "0.01"
 
 
 if FileExist(COMMON_PATH.."MixLib.lua") then
@@ -18,68 +18,68 @@ function AutoUpdate(data)
     if tonumber(data) > tonumber(ver) then
         PrintChat('<font color = "#00FFFF">New version found! ' .. data)
         PrintChat('<font color = "#00FFFF">Downloading update, please wait...')
-        DownloadFileAsync('https://raw.githubusercontent.com/allwillburn/Jax/master/Jax.lua', SCRIPT_PATH .. 'Jax.lua', function() PrintChat('<font color = "#00FFFF">Update Complete, please 2x F6!') return end)
+        DownloadFileAsync('https://raw.githubusercontent.com/allwillburn/Camille/master/Camille.lua', SCRIPT_PATH .. 'Camille.lua', function() PrintChat('<font color = "#00FFFF">Update Complete, please 2x F6!') return end)
     else
         PrintChat('<font color = "#00FFFF">No updates found!')
     end
 end
 
-GetWebResultAsync("https://raw.githubusercontent.com/allwillburn/Jax/master/Jax.version", AutoUpdate)
+GetWebResultAsync("https://raw.githubusercontent.com/allwillburn/Camille/master/Camille.version", AutoUpdate)
 
 
 GetLevelPoints = function(unit) return GetLevel(unit) - (GetCastLevel(unit,0)+GetCastLevel(unit,1)+GetCastLevel(unit,2)+GetCastLevel(unit,3)) end
 local SetDCP, SkinChanger = 0
 
-local JaxMenu = Menu("Jax", "Jax")
+local CamilleMenu = Menu("Camille", "Camille")
 
-JaxMenu:SubMenu("Combo", "Combo")
+CamilleMenu:SubMenu("Combo", "Combo")
 
-JaxMenu.Combo:Boolean("Q", "Use Q in combo", true)
-JaxMenu.Combo:Boolean("W", "Use W in combo", true)
-JaxMenu.Combo:Boolean("E", "Use E in combo", true)
-JaxMenu.Combo:Boolean("R", "Use R in combo", true)
-JaxMenu.Combo:Slider("RX", "X Enemies to Cast R",3,1,5,1)
-JaxMenu.Combo:Boolean("Cutlass", "Use Cutlass", true)
-JaxMenu.Combo:Boolean("Tiamat", "Use Tiamat", true)
-JaxMenu.Combo:Boolean("BOTRK", "Use BOTRK", true)
-JaxMenu.Combo:Boolean("RHydra", "Use RHydra", true)
-JaxMenu.Combo:Boolean("YGB", "Use GhostBlade", true)
-JaxMenu.Combo:Boolean("Gunblade", "Use Gunblade", true)
-JaxMenu.Combo:Boolean("Randuins", "Use Randuins", true)
+CamilleMenu.Combo:Boolean("Q", "Use Q in combo", true)
+CamilleMenu.Combo:Boolean("W", "Use W in combo", true)
+CamilleMenu.Combo:Boolean("E", "Use E in combo", true)
+CamilleMenu.Combo:Boolean("R", "Use R in combo", true)
+CamilleMenu.Combo:Slider("RX", "X Enemies to Cast R",3,1,5,1)
+CamilleMenu.Combo:Boolean("Cutlass", "Use Cutlass", true)
+CamilleMenu.Combo:Boolean("Tiamat", "Use Tiamat", true)
+CamilleMenu.Combo:Boolean("BOTRK", "Use BOTRK", true)
+CamilleMenu.Combo:Boolean("RHydra", "Use RHydra", true)
+CamilleMenu.Combo:Boolean("YGB", "Use GhostBlade", true)
+CamilleMenu.Combo:Boolean("Gunblade", "Use Gunblade", true)
+CamilleMenu.Combo:Boolean("Randuins", "Use Randuins", true)
 
 
-JaxMenu:SubMenu("AutoMode", "AutoMode")
-JaxMenu.AutoMode:Boolean("Level", "Auto level spells", false)
-JaxMenu.AutoMode:Boolean("Ghost", "Auto Ghost", false)
-JaxMenu.AutoMode:Boolean("Q", "Auto Q", false)
-JaxMenu.AutoMode:Boolean("W", "Auto W", false)
-JaxMenu.AutoMode:Boolean("E", "Auto E", false)
-JaxMenu.AutoMode:Boolean("R", "Auto R", false)
+CamilleMenu:SubMenu("AutoMode", "AutoMode")
+CamilleMenu.AutoMode:Boolean("Level", "Auto level spells", false)
+CamilleMenu.AutoMode:Boolean("Ghost", "Auto Ghost", false)
+CamilleMenu.AutoMode:Boolean("Q", "Auto Q", false)
+CamilleMenu.AutoMode:Boolean("W", "Auto W", false)
+CamilleMenu.AutoMode:Boolean("E", "Auto E", false)
+CamilleMenu.AutoMode:Boolean("R", "Auto R", false)
 
-JaxMenu:SubMenu("LaneClear", "LaneClear")
-JaxMenu.LaneClear:Boolean("Q", "Use Q", true)
-JaxMenu.LaneClear:Boolean("W", "Use W", true)
-JaxMenu.LaneClear:Boolean("E", "Use E", true)
-JaxMenu.LaneClear:Boolean("RHydra", "Use RHydra", true)
-JaxMenu.LaneClear:Boolean("Tiamat", "Use Tiamat", true)
+CamilleMenu:SubMenu("LaneClear", "LaneClear")
+CamilleMenu.LaneClear:Boolean("Q", "Use Q", true)
+CamilleMenu.LaneClear:Boolean("W", "Use W", true)
+CamilleMenu.LaneClear:Boolean("E", "Use E", true)
+CamilleMenu.LaneClear:Boolean("RHydra", "Use RHydra", true)
+CamilleMenu.LaneClear:Boolean("Tiamat", "Use Tiamat", true)
 
-JaxMenu:SubMenu("Harass", "Harass")
-JaxMenu.Harass:Boolean("Q", "Use Q", true)
-JaxMenu.Harass:Boolean("W", "Use W", true)
+CamilleMenu:SubMenu("Harass", "Harass")
+CamilleMenu.Harass:Boolean("Q", "Use Q", true)
+CamilleMenu.Harass:Boolean("W", "Use W", true)
 
-JaxMenu:SubMenu("KillSteal", "KillSteal")
-JaxMenu.KillSteal:Boolean("Q", "KS w Q", true)
-JaxMenu.KillSteal:Boolean("E", "KS w E", true)
+CamilleMenu:SubMenu("KillSteal", "KillSteal")
+CamilleMenu.KillSteal:Boolean("Q", "KS w Q", true)
+CamilleMenu.KillSteal:Boolean("E", "KS w E", true)
 
-JaxMenu:SubMenu("AutoIgnite", "AutoIgnite")
-JaxMenu.AutoIgnite:Boolean("Ignite", "Ignite if killable", true)
+CamilleMenu:SubMenu("AutoIgnite", "AutoIgnite")
+CamilleMenu.AutoIgnite:Boolean("Ignite", "Ignite if killable", true)
 
-JaxMenu:SubMenu("Drawings", "Drawings")
-JaxMenu.Drawings:Boolean("DQ", "Draw Q Range", true)
+CamilleMenu:SubMenu("Drawings", "Drawings")
+CamilleMenu.Drawings:Boolean("DQ", "Draw Q Range", true)
 
-JaxMenu:SubMenu("SkinChanger", "SkinChanger")
-JaxMenu.SkinChanger:Boolean("Skin", "UseSkinChanger", true)
-JaxMenu.SkinChanger:Slider("SelectedSkin", "Select A Skin:", 1, 0, 4, 1, function(SetDCP) HeroSkinChanger(myHero, SetDCP)  end, true)
+CamilleMenu:SubMenu("SkinChanger", "SkinChanger")
+CamilleMenu.SkinChanger:Boolean("Skin", "UseSkinChanger", true)
+CamilleMenu.SkinChanger:Slider("SelectedSkin", "Select A Skin:", 1, 0, 4, 1, function(SetDCP) HeroSkinChanger(myHero, SetDCP)  end, true)
 
 OnTick(function (myHero)
 	local target = GetCurrentTarget()
@@ -92,7 +92,7 @@ OnTick(function (myHero)
         local Randuins = GetItemSlot(myHero, 3143)
 
 	--AUTO LEVEL UP
-	if JaxMenu.AutoMode.Level:Value() then
+	if CamilleMenu.AutoMode.Level:Value() then
 
 			spellorder = {_E, _W, _Q, _W, _W, _R, _W, _Q, _W, _Q, _R, _Q, _Q, _E, _E, _R, _E, _E}
 			if GetLevelPoints(myHero) > 0 then
@@ -102,63 +102,63 @@ OnTick(function (myHero)
         
         --Harass
           if Mix:Mode() == "Harass" then
-            if JaxMenu.Harass.Q:Value() and Ready(_Q) and ValidTarget(target, 700) then
+            if CamilleMenu.Harass.Q:Value() and Ready(_Q) and ValidTarget(target, 700) then
 				if target ~= nil then 
                                       CastTargetSpell(target, _Q)
                                 end
             end
 
-            if JaxMenu.Harass.W:Value() and Ready(_W) and ValidTarget(target, 700) then
+            if CamilleMenu.Harass.W:Value() and Ready(_W) and ValidTarget(target, 700) then
 				CastSpell(_W)
             end     
           end
 
 	--COMBO
 	  if Mix:Mode() == "Combo" then
-            if JaxMenu.Combo.YGB:Value() and YGB > 0 and Ready(YGB) and ValidTarget(target, 700) then
+            if CamilleMenu.Combo.YGB:Value() and YGB > 0 and Ready(YGB) and ValidTarget(target, 700) then
 			CastSpell(YGB)
             end
 
-            if JaxMenu.Combo.Randuins:Value() and Randuins > 0 and Ready(Randuins) and ValidTarget(target, 500) then
+            if CamilleMenu.Combo.Randuins:Value() and Randuins > 0 and Ready(Randuins) and ValidTarget(target, 500) then
 			CastSpell(Randuins)
             end
 
-            if JaxMenu.Combo.BOTRK:Value() and BOTRK > 0 and Ready(BOTRK) and ValidTarget(target, 550) then
+            if CamilleMenu.Combo.BOTRK:Value() and BOTRK > 0 and Ready(BOTRK) and ValidTarget(target, 550) then
 			 CastTargetSpell(target, BOTRK)
             end
 
-            if JaxMenu.Combo.Cutlass:Value() and Cutlass > 0 and Ready(Cutlass) and ValidTarget(target, 700) then
+            if CamilleMenu.Combo.Cutlass:Value() and Cutlass > 0 and Ready(Cutlass) and ValidTarget(target, 700) then
 			 CastTargetSpell(target, Cutlass)
             end
 
-            if JaxMenu.Combo.E:Value() and Ready(_E) and ValidTarget(target, 700) then
+            if CamilleMenu.Combo.E:Value() and Ready(_E) and ValidTarget(target, 700) then
 			 CastSpell(_E)
 	    end
 
-            if JaxMenu.Combo.Q:Value() and Ready(_Q) and ValidTarget(target, 700) then
+            if CamilleMenu.Combo.Q:Value() and Ready(_Q) and ValidTarget(target, 700) then
 		     if target ~= nil then 
                          CastTargetSpell(target, _Q)
                      end
             end
 
-            if JaxMenu.Combo.Tiamat:Value() and Tiamat > 0 and Ready(Tiamat) and ValidTarget(target, 350) then
+            if CamilleMenu.Combo.Tiamat:Value() and Tiamat > 0 and Ready(Tiamat) and ValidTarget(target, 350) then
 			CastSpell(Tiamat)
             end
 
-            if JaxMenu.Combo.Gunblade:Value() and Gunblade > 0 and Ready(Gunblade) and ValidTarget(target, 700) then
+            if CamilleMenu.Combo.Gunblade:Value() and Gunblade > 0 and Ready(Gunblade) and ValidTarget(target, 700) then
 			CastTargetSpell(target, Gunblade)
             end
 
-            if JaxMenu.Combo.RHydra:Value() and RHydra > 0 and Ready(RHydra) and ValidTarget(target, 400) then
+            if CamilleMenu.Combo.RHydra:Value() and RHydra > 0 and Ready(RHydra) and ValidTarget(target, 400) then
 			CastSpell(RHydra)
             end
 
-	    if JaxMenu.Combo.W:Value() and Ready(_W) and ValidTarget(target, 700) then
+	    if CamilleMenu.Combo.W:Value() and Ready(_W) and ValidTarget(target, 700) then
 			CastSpell(_W)
 	    end
 	    
 	    
-            if JaxMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 700) and (EnemiesAround(myHeroPos(), 700) >= JaxMenu.Combo.RX:Value()) then
+            if CamilleMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 700) and (EnemiesAround(myHeroPos(), 700) >= JaxMenu.Combo.RX:Value()) then
 			CastSpell(_R)
             end
 
@@ -188,13 +188,13 @@ OnTick(function (myHero)
 
         for _, enemy in pairs(GetEnemyHeroes()) do
                 
-                if IsReady(_Q) and ValidTarget(enemy, 700) and JaxMenu.KillSteal.Q:Value() and GetHP(enemy) < getdmg("Q",enemy) then
+                if IsReady(_Q) and ValidTarget(enemy, 700) and CamilleMenu.KillSteal.Q:Value() and GetHP(enemy) < getdmg("Q",enemy) then
 		         if target ~= nil then 
                                       CastTargetSpell(target, _Q)
 		         end
                 end 
 
-                if IsReady(_E) and ValidTarget(enemy, 187) and JaxMenu.KillSteal.E:Value() and GetHP(enemy) < getdmg("E",enemy) then
+                if IsReady(_E) and ValidTarget(enemy, 187) and CamilleMenu.KillSteal.E:Value() and GetHP(enemy) < getdmg("E",enemy) then
 		                      CastSpell(_E)
   
                 end
@@ -202,51 +202,51 @@ OnTick(function (myHero)
 
       if Mix:Mode() == "LaneClear" then
       	  for _,closeminion in pairs(minionManager.objects) do
-	        if JaxMenu.LaneClear.Q:Value() and Ready(_Q) and ValidTarget(closeminion, 700) then
+	        if CamilleMenu.LaneClear.Q:Value() and Ready(_Q) and ValidTarget(closeminion, 700) then
 	        	CastTargetSpell(closeminion, _Q)
                 end
 
-                if JaxMenu.LaneClear.W:Value() and Ready(_W) and ValidTarget(closeminion, 700) then
+                if CamilleMenu.LaneClear.W:Value() and Ready(_W) and ValidTarget(closeminion, 700) then
 	        	CastSpell(_W)
 	        end
 
-                if JaxMenu.LaneClear.E:Value() and Ready(_E) and ValidTarget(closeminion, 187) then
+                if CamilleMenu.LaneClear.E:Value() and Ready(_E) and ValidTarget(closeminion, 187) then
 	        	CastSpell(_E)
 	        end
 
-                if JaxMenu.LaneClear.Tiamat:Value() and ValidTarget(closeminion, 350) then
+                if CamilleMenu.LaneClear.Tiamat:Value() and ValidTarget(closeminion, 350) then
 			CastSpell(Tiamat)
 		end
 	
-		if JaxMenu.LaneClear.RHydra:Value() and ValidTarget(closeminion, 400) then
+		if CamilleMenu.LaneClear.RHydra:Value() and ValidTarget(closeminion, 400) then
                         CastTargetSpell(closeminion, RHydra)
       	        end
           end
       end
         --AutoMode
-        if JaxMenu.AutoMode.Q:Value() then        
+        if CamilleMenu.AutoMode.Q:Value() then        
           if Ready(_Q) and ValidTarget(target, 700) then
 		      CastTargetSpell(target, _Q)
           end
         end 
-        if JaxMenu.AutoMode.W:Value() then        
+        if CamilleMenu.AutoMode.W:Value() then        
           if Ready(_W) and ValidTarget(target, 700) then
 	  	      CastSpell(_W)
           end
         end
-        if JaxMenu.AutoMode.E:Value() then        
+        if CamilleMenu.AutoMode.E:Value() then        
 	  if Ready(_E) and ValidTarget(target, 125) then
 		      CastSpell(_E)
 	  end
         end
-        if JaxMenu.AutoMode.R:Value() then        
+        if CamilleMenu.AutoMode.R:Value() then        
 	  if Ready(_R) and ValidTarget(target, 700) then
 		      CastSpell(_R)
 	  end
         end
                 
 	--AUTO GHOST
-	if JaxMenu.AutoMode.Ghost:Value() then
+	if CamilleMenu.AutoMode.Ghost:Value() then
 		if GetCastName(myHero, SUMMONER_1) == "SummonerHaste" and Ready(SUMMONER_1) then
 			CastSpell(SUMMONER_1)
 		elseif GetCastName(myHero, SUMMONER_2) == "SummonerHaste" and Ready(SUMMONER_2) then
@@ -257,7 +257,7 @@ end)
 
 OnDraw(function (myHero)
         
-         if JaxMenu.Drawings.DQ:Value() then
+         if CamilleMenu.Drawings.DQ:Value() then
 		DrawCircle(GetOrigin(myHero), 700, 0, 200, GoS.Red)
 	end
 
@@ -283,7 +283,7 @@ end)
 
 
 local function SkinChanger()
-	if JaxMenu.SkinChanger.UseSkinChanger:Value() then
+	if CamilleMenu.SkinChanger.UseSkinChanger:Value() then
 		if SetDCP >= 0  and SetDCP ~= GlobalSkin then
 			HeroSkinChanger(myHero, SetDCP)
 			GlobalSkin = SetDCP
@@ -292,7 +292,7 @@ local function SkinChanger()
 end
 
 
-print('<font color = "#01DF01"><b>Jax</b> <font color = "#01DF01">by <font color = "#01DF01"><b>Allwillburn</b> <font color = "#01DF01">Loaded!')
+print('<font color = "#01DF01"><b>Camille</b> <font color = "#01DF01">by <font color = "#01DF01"><b>Allwillburn</b> <font color = "#01DF01">Loaded!')
 
 
 
