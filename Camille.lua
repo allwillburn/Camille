@@ -193,9 +193,11 @@ OnTick(function (myHero)
 
                 if IsReady(_E) and ValidTarget(enemy, 187) and CamilleMenu.KillSteal.E:Value() and GetHP(enemy) < getdmg("E",enemy) then
 		                      CastSkillShot(_E, target)
-  
                 end
+           end
+       end
       end
+	
 
       if Mix:Mode() == "LaneClear" then
       	  for _,closeminion in pairs(minionManager.objects) do
