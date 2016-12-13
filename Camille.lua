@@ -115,7 +115,7 @@ OnTick(function (myHero)
 	--COMBO
 	  if Mix:Mode() == "Combo" then
 	    if CamilleMenu.Combo.E:Value() and Ready(_E) and ValidTarget(target, 700) then
-			 CastSkillShot(_E, mouse.pos)
+			 CastSkillShot(_E, inwall)
 	    end
 			
             if CamilleMenu.Combo.YGB:Value() and YGB > 0 and Ready(YGB) and ValidTarget(target, 700) then
