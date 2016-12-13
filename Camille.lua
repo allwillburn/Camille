@@ -157,7 +157,7 @@ OnTick(function (myHero)
 	    
 	    
             if CamilleMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 700) and (EnemiesAround(myHeroPos(), 700) >= CamilleMenu.Combo.RX:Value()) then
-			CastSkillShot(_R, target) 
+			 CastTargetSpell(target, _R)
             end
 
           end
