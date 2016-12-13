@@ -114,6 +114,10 @@ OnTick(function (myHero)
 
 	--COMBO
 	  if Mix:Mode() == "Combo" then
+	    if CamilleMenu.Combo.E:Value() and Ready(_E) and ValidTarget(target, 700) then
+			 CastSkillShot(_E, mouse.pos)
+	    end
+			
             if CamilleMenu.Combo.YGB:Value() and YGB > 0 and Ready(YGB) and ValidTarget(target, 700) then
 			CastSpell(YGB)
             end
