@@ -288,7 +288,7 @@ local function SkinChanger()
 	if CamilleMenu.SkinChanger.UseSkinChanger:Value() then
 		if SetDCP >= 0  and SetDCP ~= GlobalSkin then
 			HeroSkinChanger(myHero, SetDCP)
-			GlobalSkin = SetDCP
+			GlobalSkin = SetDCP 
 		end
         end
 end
