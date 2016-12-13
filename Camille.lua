@@ -156,7 +156,7 @@ OnTick(function (myHero)
 	    end
 	    
 	    
-            if CamilleMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 700) and (EnemiesAround(myHeroPos(), 700) >= CalmilleMenu.Combo.RX:Value()) then
+            if CamilleMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 700) and (EnemiesAround(myHeroPos(), 700) >= CamilleMenu.Combo.RX:Value()) then
 			CastSkillShot(_R, target) 
             end
 
