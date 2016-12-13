@@ -269,7 +269,7 @@ end)
 OnProcessSpell(function(unit, spell)
 	local target = GetCurrentTarget()        
        
-        if unit.isMe and spell.name:lower():find("jaxempowertwo") then 
+        if unit.isMe and spell.name:lower():find("precisionprotocol") then 
 		Mix:ResetAA()	
 	end        
 
