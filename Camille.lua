@@ -173,7 +173,7 @@ OnTick(function (myHero)
 				end
 			end
 
-		elseif GetCastName(myHero, SUMMONER_2) == 'SummonerDot' then
+		elseif GetCastName(myHero, SUMMONER_2) == 'SummonerDot' then 
 			 Ignite = SUMMONER_2
 			if ValidTarget(enemy, 600) then
 				if 20 * GetLevel(myHero) + 50 > GetCurrentHP(enemy) + GetHPRegen(enemy) * 3 then
