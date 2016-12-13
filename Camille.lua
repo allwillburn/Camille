@@ -251,6 +251,7 @@ OnTick(function (myHero)
 		elseif GetCastName(myHero, SUMMONER_2) == "SummonerHaste" and Ready(SUMMONER_2) then
 			CastSpell(Summoner_2)
 		end
+	   end
 	end
 end)
 
