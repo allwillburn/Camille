@@ -188,7 +188,7 @@ OnTick(function (myHero)
                 
                 if IsReady(_Q) and ValidTarget(enemy, 700) and CamilleMenu.KillSteal.Q:Value() and GetHP(enemy) < getdmg("Q",enemy) then		         
                                       CastSpell(_Q)
-		         end
+		        
                 end 
 
                 if IsReady(_E) and ValidTarget(enemy, 187) and CamilleMenu.KillSteal.E:Value() and GetHP(enemy) < getdmg("E",enemy) then
